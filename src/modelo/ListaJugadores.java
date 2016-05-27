@@ -29,8 +29,8 @@ public class ListaJugadores implements Serializable{
         lista.add(j);
     }
     
-    public void existeJugador(Jugador j){
-        lista.contains(j);
+    public boolean existeJugador(Jugador j){
+        return lista.contains(j);
         //volvemos a DatosJugador
     }
     

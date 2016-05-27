@@ -52,6 +52,10 @@ public class DatosJugador extends javax.swing.JDialog {
         if(!j.isDiestro()){
             jRBzurdo.setSelected(true);
         }
+        if(modo.equals("Modificar")){ //Si es modificar, la fecha que tengo aqui tiene que ser la fecha que tenia el jugador
+            jXDatePicker1.setDate(elJugador.getNacimiento());
+            jTextField1.setEditable(false); //asi no puede modificar el nombre
+        }
     }
     
     //Bindeamos Nombre y apellidos, nacionalidad y 
@@ -205,6 +209,7 @@ public class DatosJugador extends javax.swing.JDialog {
         //bindeamos la lista de paises en el formulario
         //implementamos en ListaJugador el metodo altaJugador()
         if (ok){
+            elJugador.setNacimiento(jXDatePicker1.getDate());
             if(modo.equals("Alta")){
                 //en Persona agregamos el equals por Nombre pq 2 personas seran iguales si tienen mismo nombre
                 if (SeleccionMar.todosJugadores.existeJugador(elJugador)){
@@ -236,7 +241,7 @@ public class DatosJugador extends javax.swing.JDialog {
             return false;
         }
         if (jComboBox1.getSelectedIndex() == 0|| elJugador.getNacionalidad().equals("")){
-        JOptionPane.showMessageDialog(this, "Debes inficar un pais", "ERROR: Nacionalidad incorrecta", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Debes indicar un pais", "ERROR: Nacionalidad incorrecta", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         if(jXDatePicker1.getDate() == null){
