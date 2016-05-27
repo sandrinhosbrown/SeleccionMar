@@ -7,6 +7,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -25,6 +26,29 @@ public class Persona implements Serializable{
         nacimiento = new Date();
     }
     
+    //Agregamos el metodo equals para Nombre de Persona
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 83 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return true;
+    } //ahora podemos hacer en ListaJugadores la funcion existe
     
     
     public static final String PROP_NACIMIENTO = "nacimiento";

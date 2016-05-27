@@ -24,7 +24,15 @@ public class ListaJugadores implements Serializable{
         lista = ObservableCollections.observableList(new ArrayList<Jugador>());
     }
     // ahora crearemos la clase Equipo
+    //...
+    public void altaJugador(Jugador j){
+        lista.add(j);
+    }
     
+    public void existeJugador(Jugador j){
+        lista.contains(j);
+        //volvemos a DatosJugador
+    }
     
     public static final String PROP_LISTA = "lista";
      
