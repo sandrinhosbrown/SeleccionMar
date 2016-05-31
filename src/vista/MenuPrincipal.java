@@ -5,6 +5,7 @@
  */
 package vista;
 
+import modelo.Entrenador;
 import modelo.Jugador;
 
 /**
@@ -70,6 +71,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.setPreferredSize(new java.awt.Dimension(100, 19));
 
         jMenuItem2.setText("Alta Entrenador");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
@@ -103,6 +109,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         dj.setLocationRelativeTo(null);;
         dj.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // llamamos a la ventana de DatosEntrenador
+        DatosEntrenador de = new DatosEntrenador(this, true, new Entrenador(), "Alta");
+        de.setVisible(true);
+        de.set
+                
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     
 
